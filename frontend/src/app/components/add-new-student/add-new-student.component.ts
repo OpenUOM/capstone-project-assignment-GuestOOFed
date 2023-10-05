@@ -15,14 +15,17 @@ export class AddNewStudentComponent implements OnInit {
   }
 
   createStudent(value){
-
+    
     const student = {
       id : value.id,
       name : value.name,
       age : value.age,
       hometown : value.Hometown
     }
-
+    if (!student.id || !student.name || !student.age || !student.hometown) {
+      alert('Validation Error: All fields are required.');
+      return;
+    }
 
     this.service.addStudent(student).subscribe((response)=>{
       this.router.navigate(['student'])

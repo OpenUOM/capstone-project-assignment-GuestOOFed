@@ -26,6 +26,7 @@ app.get("/dbinitialize", async function (req, res) {
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));
 });
+
 // ============== Teacher Related endpoints ==============
 
 app.get("/listTeachers", async function (req, res) {
@@ -61,7 +62,7 @@ app.post("/editTeacher", async function (req, res) {
   console.log(
     "Request received to update teacher. Req body: " + JSON.stringify(reqBody)
   );
-  let data = await updateTeacher(reqBody.name,reqBody.age,reqBody.id);
+  let data = await updateTeacher(reqBody.id, reqBody.name, reqBody.age);
 
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));
@@ -129,7 +130,7 @@ app.post("/editStudent", async function (req, res) {
   console.log(
     "Request received to update Student. Req body: " + JSON.stringify(reqBody)
   );
-  let data = await updateStudent(reqBody.name,reqBody.age,reqBody.hometown,reqBody.id);
+  let data = await updateStudent(reqBody.id,reqBody.name,reqBody.age,reqBody.hometown);
 
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));

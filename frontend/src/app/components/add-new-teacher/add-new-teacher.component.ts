@@ -15,13 +15,16 @@ export class AddNewTeacherComponent implements OnInit {
   }
 
   createTeacher(value){
-
+    
     const teacher = {
       id : value.id,
       name : value.name,
       age : value.age
     }
-
+    if (!teacher.id || !teacher.name || !teacher.age) {
+      alert('Validation Error: All fields (id, name, age) are required.');
+      return;
+    }
 
     this.service.addTeacher(teacher).subscribe((response)=>{
       this.router.navigate([''])
