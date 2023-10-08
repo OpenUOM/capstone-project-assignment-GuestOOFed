@@ -1,19 +1,19 @@
-const express = require ("express");
-
-const {
-  readTeachers,
-  readStudents,
-  addStudent,
-  addTeacher,
-  deleteTeacher,
-  deleteStudent,
-  readStudentInfo,
-  readTeacherInfo,
-  updateStudent,
-  updateTeacher,
-  dbinitialize
-} = require ("./database.js");
-
+import express from "express";
+import bodyParser from "body-parser";
+import {
+    initializeDatabase,
+    readTeachers,
+    readStudents,
+    readTeacherInfo,
+    readStudentInfo,
+    addTeacher,
+    addStudent,
+    deleteTeacher,
+    deleteStudent,
+    updateStudent,
+    updateTeacher,
+} from "./database.js";
+ 
 const app = express();
 const bodyParser = require  ("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
