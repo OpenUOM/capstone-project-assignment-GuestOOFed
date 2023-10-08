@@ -8,23 +8,19 @@ import { AppServiceService } from '../../app-service.service';
   styleUrls: ['./teacher-table.component.css']
 })
 export class TeacherTableComponent implements OnInit {
-
   faTrash = faTrash;
   faPlus = faPlus;
   faPenSquare = faPenSquare;
   teacherData: any;
   selected: any;
-
   constructor(private service: AppServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.getTeacherData();
   }
-
   addNewTeacher() {
     this.router.navigate(['addTeacher'])
   }
-
   editTeacher(id) {
     const navigationExtras: NavigationExtras = {
       state: {
@@ -33,7 +29,6 @@ export class TeacherTableComponent implements OnInit {
     };
     this.router.navigate(['editTeacher'], navigationExtras)
   }
-
   initializeDB(){
     this.service.initializeDB().subscribe((response) => {
       console.log('DB is Initialized')
@@ -41,7 +36,6 @@ export class TeacherTableComponent implements OnInit {
       console.log('ERROR - ', error)
     })
   }
-
   getTeacherData() {
     this.selected = 'Teachers';
     this.service.getTeacherData().subscribe((response) => {
@@ -50,7 +44,6 @@ export class TeacherTableComponent implements OnInit {
       console.log('ERROR - ', error)
     })
   }
-
   getStudentData() {
     this.selected = 'Students';
     this.service.getStudentData().subscribe((response) => {
@@ -59,7 +52,6 @@ export class TeacherTableComponent implements OnInit {
       console.log('ERROR - ', error)
     })
   }
-
   search(value) {
     let foundItems = [];
     if (value.length <= 0) {

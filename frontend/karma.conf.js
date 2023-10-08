@@ -1,6 +1,5 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
-
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -25,10 +24,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: {
-      name: 'Chrome',
-      version: '108.0.5359.124'
-    },
+    browsers: ['Chrome'],
     singleRun: false,
     restartOnFileChange: true
   });
