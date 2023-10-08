@@ -70,6 +70,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            
             "browserTarget": "capstone-frontend:build",
             "proxyConfig": "./proxy.conf.json"
           },
@@ -132,5 +133,8 @@
         }
       }
     }},
-  "defaultProject": "capstone-frontend"
+  "defaultProject": "capstone-frontend",
+  "cli": {
+    "analytics": "577f9753-9639-4191-9ddc-50a3cf9442b2"
+  }
 }

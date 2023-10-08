@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "npm i && npm i forever && export NODE_ENV=test && forever start --minUptime 30000 ../backend/index.js && forever start --minUptime 30000 node_modules/@angular/cli/bin/ng serve --port 4401 --configuration=test && sleep 10 && testcafe chrome:headless $file && forever stopall",
+    "start": "ng serve --port 4401",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider; ng build",
+    "test": "cross-env NODE_ENV=test forever start --minUptime 30000 ../backend/index.js && cross-env NODE_ENV=test forever --spinSleepTime 10000 start node_modules/@angular/cli/bin/ng serve --port 4401 --configuration=test && sleep 10 && testcafe chrome:headless ./test && forever stopall",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -51,7 +51,7 @@
     "karma-jasmine": "~3.3.0",
     "karma-jasmine-html-reporter": "^1.6.0",
     "protractor": "~7.0.0",
-    "testcafe": "1.18.6",
+    "testcafe": "^3.3.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
